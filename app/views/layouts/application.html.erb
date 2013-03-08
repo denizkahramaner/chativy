@@ -27,7 +27,7 @@
 					<% if @logged_in_user %>
 						<% if session[:user] then %>
 							<li>
-								<a href="http://localhost:3000/pics/user/<%= session[:user] %>">
+								<a href="/pics/user/<%= session[:user] %>">
 								Photos
 								</a>
 							</li>
@@ -35,22 +35,22 @@
 						<% if session[:user] then %>
 							<li>
 								<a 
-							href="http://localhost:3000/pics/users">
+							href="/pics/users">
 								Users
 								</a>
 							</li>
 						<%end %>
 						<li>
-							<a href="http://localhost:3000/user/logout"><%= @logged_in_user.first_name %>_TODO (dropdown)
+							<a href="/user/logout"><%= @logged_in_user.first_name %>_TODO (dropdown)
 								</a>
 						</li>
 						<li>
-							<a href="http://localhost:3000/user/logout">Logout
+							<a href="/user/logout">Logout
 							</a>
 						</li>
 						
 					<% elsif %>
-						<li><a href="http://localhost:3000/user/login">Sign in</a></li>
+						<li><a href="/user/login">Sign in</a></li>
 						
 					<% end %>
 	            </ul>
