@@ -4,7 +4,7 @@ class CreatePhotos < ActiveRecord::Migration
 			t.column :id, 			:integer
 			t.column :user_id, 		:integer
 		 	t.column :date_time , 	:datetime
-		 	t.column :file_name, 	:url
+		 	t.column :file_name, 	:string
 		end
 	end
     
