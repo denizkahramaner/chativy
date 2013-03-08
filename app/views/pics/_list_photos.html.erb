@@ -1,0 +1,19 @@
+<% content_for :title, "List of Search Results" %>
+<div class="photo_results">
+	<p>  
+		<% if @substr!=nil %>   
+			<!--Query[substring]: <%= @substr %> -->
+			<% if @result_photos!=nil and @result_photos.length>0 then %>
+				<% @result_photos.each do |current_photo| %>
+					<a href="/pics/user/<%= current_photo.user_id%>#<%=current_photo.id.to_s%>">
+						<img class="user_pic search_result" src="/images/<%= current_photo.file_name%>"></img>
+					</a>
+				<% end %>
+			<% else %>
+				We couldn't find a photo. You should search for a users' comments, first name or last name
+			<% end %>
+		<% else %>
+			Query failed.
+		<% end %>
+	</p>
+</div>

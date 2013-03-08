@@ -1,0 +1,208 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+body
+{
+	background-color:#3D72A4;
+	margin-top: 0px;
+}
+
+@font-face {
+  font-family: trocchi;
+  font-style: normal;
+  font-weight: 400;
+  src: url('http://themes.googleusercontent.com/static/fonts/trocchi/v1/FxnVMeU6MpRiIW8IbIEcBwLUuEpTyoUstqEm5AMlJo4.woff') format('woff');
+}
+
+
+@font-face {
+	font-family: light_font;
+	src: url("CODE Light.otf")  
+}
+
+@font-face {
+	font-family: bold_font;
+	src: url("CODE Bold.otf")  
+}
+
+.no_bottom
+{
+	padding-top:0px;
+	border-bottom-width: 0px; 
+	padding-bottom: 0px;
+}
+
+.center_aligned
+{
+	text-align:center;
+}
+
+table.banner_table
+{
+	border-style:solid;
+	border-color:white;
+	border-width:0px;
+	border-bottom-width:5px;
+}
+
+table.banner_table.td
+{
+	border-bottom-width: 0px;
+}
+
+
+table.page_table
+{
+margin-left:auto;
+margin-right:auto;
+margin-bottom: 0px;
+}
+
+td.content_body
+{
+	background-color:white;
+	font-family: trocchi;
+	width:900px;
+}
+
+td.banner:hover
+{
+	height:174px;
+	width:318px;
+	background-image: url("/assets/banner.gif");
+	border-bottom-width: 0px; 
+	padding-bottom: 0px;
+}
+
+td.banner
+{
+	height:174px;
+	width:318px;
+	background-image: url("/assets/banner.jpg");
+	border-bottom-width: 0px; 
+	padding-bottom: 0px;
+}
+
+td.black_buffer
+{
+	width: 320px;
+	background-color:black;
+	border-bottom-width: 0px; 
+	padding-bottom: 0px;
+}
+
+a.banner_text:link
+{
+	letter-spacing:-5px;
+	padding:none;
+	font-size: 40px;
+	text-align:center;
+	color: white;
+}
+
+a.banner_text:hover
+{
+	letter-spacing:-5px;
+	font-size: 60px;
+	text-align:center;
+	color: white;
+}
+
+a.banner_text:visited
+{
+	letter-spacing:-5px
+	font-size: 40px;
+	text-align:center;
+	color: white;
+}
+
+td.menu_item
+{
+	width:300px;
+	text-align:center;
+	background-color:black;
+}
+
+a
+{
+	font-family: bold_font;
+	text-decoration:  none;
+}
+
+.menu_text
+{
+	font-family: bold_font;
+	color:white;
+	font-size: 30px;
+}
+
+a.menu_text:link
+{
+	color:white;
+	font-size: 40px;
+}
+
+a.menu_text:visited
+{
+	color:white;
+	font-size: 40px;
+}
+
+a.menu_text:hover
+{
+	color:#A31E39;
+	font-family: bold_font;
+	font-size: 40px;
+}
+
+.footer
+{
+	background-color:black;
+	font-family: bold_font;
+	font-size: 30px;
+	padding:5px 5px 3px 5px;
+}
+
+p.footer
+{
+	margin-top:0px;
+	margin-bottom:0px;
+	color:white;
+}
+/*
+a.content_link:link
+{
+	color:#3D72A4;
+}
+
+a.content_link:visited
+{
+	color:#3D72A4;
+}
+
+a.content_link:hover
+{
+	color:#A31E39;
+}
+*/
+
+.margin_left
+{
+	margin-left:20px;
+}
+
+.form_label
+{
+	text-align:right;
+}
+

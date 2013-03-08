@@ -1,0 +1,15 @@
+
+<div id="container<%=photo.id.to_s %>" class="container">
+    <a  name="<%=photo.id.to_s%>"><img class="user_pic_tag" src="/images/<%= photo_path %>" alt="<%= photo.user.first_name%>"/> </a>
+    <% photo.tags.each do |current_tag| %>
+        <% current_tag_id = photo.file_name + current_tag.id.to_s %>
+        <script type="text/javascript">
+        //<![CDATA[
+            new Displayer("container<%=photo.id.to_s%>", "<%= current_tag_id %>", <%= current_tag.x_coord %>, <%=current_tag.y_coord  %>,<%= current_tag.width %>,<%=current_tag.height%>, "<%= current_tag.user.first_name%>", "<%=current_tag.user.last_name %>");
+        //]]>
+        </script>
+    <% end %>
+</div>
+<div class="center_aligned">
+    <a href="/pics/tag/<%= photo.id %>" class="content_link"> Tag this picture </a>
+</div>

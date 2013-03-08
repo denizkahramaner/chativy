@@ -1,0 +1,147 @@
+
+#tagger{
+  position: absolute;
+  border-style: solid;
+  padding:0px;
+  margin:0px;
+  border-width:2px;
+  border-color: red;
+}
+
+p.tagName
+{
+   -webkit-text-stroke: 1px black;
+   color: #3D72A4;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+  	font-size: 20px;
+  	line-height:16px;
+	margin:4px 4px 4px 4px;
+	visibility:hidden;
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+div.oldTag:hover p 
+{
+	visibility:visible;
+	cursor:default;
+}
+
+div.oldTag
+{
+	position:absolute;
+	-moz-box-shadow: 0 0 10px #fff;
+	-webkit-box-shadow: 0 0 10px #fff;
+	box-shadow: 0px 0px 10px #fff;
+	border-style: solid;
+	border-color: black;
+	border-width:2px;
+}
+
+div.oldTag:hover
+{
+	opacity:0.6;
+	background-color:white;
+	cursor:default;
+}
+
+
+td.photo_and_comments
+{
+	border-style:solid;
+	border-width:2px;
+	border-color: #3D72A4;
+}
+
+td.date_and_comments
+{
+	vertical-align:top;
+}
+
+table.comments
+{
+	margin-top:20px;
+}
+
+td.comment
+{
+	background-color:#F1F3F6;
+	margin-top:2px;
+	width:700px;
+}
+
+li
+{
+	font-family: trocchi;
+}
+
+
+p.date
+{
+	font-family: trocchi;
+	font-size: 14px;
+	color:#B2B2B2;
+	margin-top: 0px; 
+	margin-bottom: 0px;
+}
+
+img.search_result
+{
+	height:80px;
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+img.user_pic_tag 
+{
+    opacity:1;
+    max-width:250px;
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+img.user_pic 
+{
+    opacity:1;
+    max-width:250px;
+}
+
+img.user_pic:hover
+{
+	opacity:0.7;
+	max-width:250px;
+}
+
+.form
+{
+	margin-left: 20px;
+	margin-top:40px;
+	margin-bottom:40px
+}
+
+div.photo_results
+{
+	margin: 10px 10px 10px 10px;
+	display:block;
+	display:inline-block;
+}
+
+div.search_field
+{
+	margin-bottom:20px;
+}
+

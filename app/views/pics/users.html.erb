@@ -1,0 +1,29 @@
+<% @title = "CS142 Project 3 Part 1 Users" %>
+
+<div class="results margin_left">
+	<h2> All users: </h2>
+	<ul>
+		<% @users.each do |current_user| %>
+	        <li> 
+				<a class= "content_link" href="http://localhost:3000/pics/user/<%= current_user.id  %>">
+				<%= current_user.first_name + " "+ current_user.last_name+ " " %></a>
+	        </li>
+	    <% end %>
+	</ul>
+
+	<% content_for :title, "Ajax Search" %>
+	<div class="search_field">
+		<h2> Search for users </h2>
+		<input type="text" id="filter_input" />
+		<div id="photo_results">
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		// I Pass in the "/pics/user" as a parameter because I am using JSON, and I need it in order to link each page to /pics/user/{user id}
+		//<![CDATA[
+		new ImageSearch("filter_input", "/pics/search.js?substring", "/pics/user", "photo_results");
+		//]]>
+	</script>
+</div>

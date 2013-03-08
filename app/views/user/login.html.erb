@@ -1,0 +1,23 @@
+<div class = "form">
+	<h2> Login to your account </h2>
+	<!-- Show errors -->
+	<% if flash[:notice] then %>
+		<ul>
+			<% flash[:notice].each do |current_message| %>
+				<li> <%= current_message %> </li>
+			<% end %>
+		</ul>
+	<%end %>
+	<!-- Display form for login -->
+	<%= form_for(:user, :url => {:action => :post_login}) do |form| %>
+		<p>
+			<%= form.label(:login) %>
+			<%= form.text_field(:login) %>
+			
+			<%= form.label :password %>
+			<%= form.password_field :password %>
+			<%= submit_tag "Submit" %>
+		</p>
+	<% end %>
+	<p> If you don't have an account, <a class="content_link" href="/user/register/"> Register </a> </p>
+</div>

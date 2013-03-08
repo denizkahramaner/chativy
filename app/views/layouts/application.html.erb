@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title><%= @title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Using Chativy, you can get hours of live and direct help through your entire application process. Getting real help from Stanford students can significantly increase your chances of getting into a top university, which will make a big positive impact on your future.">
+  <meta name="author" content="Deniz Kahramaner (dennizk@gmail.com)">
+  <%= stylesheet_link_tag    "bootstrap", "bootstrap-responsive", "typica" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<!-- Navigation bar code BEGIN -->
+	<div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </a>
+	          <a class="brand" href="index.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          <div class="nav-collapse">
+	            <ul class="nav pull-right">
+					<li><a href="/information/index">Home</a></li>
+					<li><a href="/information/about">About</a></li>
+					<li><a href="/information/pricing">Pricing</a></li>
+					<% if @logged_in_user %>
+						<% if session[:user] then %>
+							<li>
+								<a href="http://localhost:3000/pics/user/<%= session[:user] %>">
+								Photos
+								</a>
+							</li>
+						<%end %>
+						<% if session[:user] then %>
+							<li>
+								<a 
+							href="http://localhost:3000/pics/users">
+								Users
+								</a>
+							</li>
+						<%end %>
+						<li>
+							<a href="http://localhost:3000/user/logout"><%= @logged_in_user.first_name %>_TODO (dropdown)
+								</a>
+						</li>
+						<li>
+							<a href="http://localhost:3000/user/logout">Logout
+							</a>
+						</li>
+						
+					<% elsif %>
+						<li><a href="http://localhost:3000/user/login">Sign in</a></li>
+						
+					<% end %>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	    	</div>
+		</div>
+	</div>
+	<!-- Navigation bar code END -->
+	<%= yield %>
+	<div style="clear:both; border-top: solid 1px #cccccc; padding: 20px;"> 
+        © Chativy 2013
+      </div>
+      <%= javascript_include_tag "jquery", "bootstrap", "plugins", "setup" %>
+</body>
+</html>
+

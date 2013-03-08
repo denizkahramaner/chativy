@@ -1,0 +1,17 @@
+<% if !session[:user] %>
+	<p> You can't post photos when you are not logged in </p>
+<% elsif %>
+	<div class = "form">
+		<p> Post a photo! </p>
+		<%= form_for(:pics, :url => {:action => :post_photo}, :html => {:multipart => true}) do |form| %>
+			<% if flash[:notice] %>
+				<p> <%= flash[:notice] %> </p>
+			<% end %>
+			<p>
+				<%= form.file_field :image %>
+				<%= submit_tag "Submit" %>
+			</p>
+		<% end %>
+	</div>
+<%end %>
+

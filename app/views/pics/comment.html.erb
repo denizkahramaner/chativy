@@ -1,0 +1,32 @@
+
+<div class="margin_left">
+
+<% if !@photo then %>
+	This photo does not exist. You can't comment on an unexistent photo!
+<% elsif !@logged_in_user %>
+	<p> You can't comment when you are not logged in </p>
+<% elsif %>
+	<% photo_path = @photo.file_name %>
+	<a href="/images/<%= photo_path %>">
+		<img class="user_pic" src="/images/<%= photo_path %>" alt=""/>
+	</a>
+
+	<div class = "form">
+		<p> Post a comment! </p>
+		<%= form_for(@comment, :url => {:action => :post_comment, :id => @photo.id}) do |form| %>
+			<ul>
+				<% @comment.errors.full_messages.each do |current_message| %>
+					<li>
+						<%= current_message %>
+					</li>
+				<% end %>
+			</ul>
+			<p>
+				<%= form.text_field(:comment) %>
+				<%= submit_tag "Submit" %>
+			</p>
+		<% end %>
+	</div>
+<%end %>
+
+</div>

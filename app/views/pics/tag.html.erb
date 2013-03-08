@@ -1,0 +1,41 @@
+<% if !@photo then %>
+This photo does not exist. You can't tag someone on an unexistent photo!
+<% else %>
+	<div id="container">
+		<img id="img" class="user_pic_tag" src="/images/<%= @photo.file_name %>" alt="<%= @photo.user.first_name%>"/>
+		<div id="tagger"></div>
+		<% @photo.tags.each do |current_tag| %>
+			<% current_tag_id = @photo.file_name + current_tag.id.to_s %>
+			<script type="text/javascript">
+			//<![CDATA[
+				new Displayer("container", "<%= current_tag_id %>", <%= current_tag.x_coord %>, <%=current_tag.y_coord  %>,<%= current_tag.width %>,<%=current_tag.height%>, "<%= current_tag.user.first_name%>", "<%=current_tag.user.last_name %>");
+			//]]>
+			</script>
+		<% end %>
+	</div>
+
+	<div class = "form">
+	        <p> Tag a picture! </p>
+	        <%= form_for(@tag, :url => {:action => :post_tag, :id => @photo.id}) do |form| %>
+	        	<% if flash[:notice] %>
+	        		<p> <%= flash[:notice] %> </p>
+	        	<% end %>
+
+	            <p>
+	            	<%= form.select :user_id, @users.collect {|p| [ p.full_name, p.id ] } %>
+	            	<br/>
+	                <%= form.hidden_field(:x_coord) %>
+	                <%= form.hidden_field(:y_coord) %>
+	                <%= form.hidden_field(:width) %>
+	                <%= form.hidden_field(:height) %>
+	                <%= submit_tag "Submit" %>
+	            </p>
+	        <% end %>
+	    </div>
+
+	<script type="text/javascript">
+		//<![CDATA[
+		var myTagger = new Tagger("container", "tagger", "tag_x_coord", "tag_y_coord", "tag_width", "tag_height");
+		//]]>
+	</script>
+<% end %>

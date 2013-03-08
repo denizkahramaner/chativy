@@ -1,0 +1,44 @@
+<% if !@user %>
+	<h2> Such as user does not exist </h2>
+<%else%>
+	<div class="results">
+		<% if @user.photos.length > 0 then %>
+		    <h2 class="margin_left"> <%= @title %> </h2>
+		    <% if @own_page then %>
+				<a href="/pics/photo" class="content_link margin_left"> Upload a new photo! </a> 
+				<br/><br/>
+			<% end %>
+		    <table>
+			    <!-- Iterate through each picture, and list the data and comments-->
+			    <% @user.photos.each do |current_photo| %>
+			        <tr><td class="photo_and_comments"> 
+			        	<table>
+			        		<tr>
+			        			<td>
+									<!-- Table column that holds the user's picture -->
+									<% photo_path = current_photo.file_name %>
+										<%= render :partial => "display_tags", :locals => {:photo_path => photo_path, :photo => current_photo} %>
+				       			</td>
+						        <td class="date_and_comments">
+									<p class="date"> Picture's creation time: 
+											<%= current_photo.date_pacific %> </p>
+									<!-- The view_comments partial displays all the comments -->
+									<%= render :partial => "view_comments",
+										:locals => {:photo => current_photo} %>
+						        </td>
+					    	</tr>
+					    </table>
+			        </td></tr>
+			    <% end %>
+		    </table>
+		<% else %>
+			<% if @own_page then %>
+				<h2 class="margin_left"> You don't have any pictures! </h2>
+				<a href="/pics/photo" class="content_link margin_left"> Upload a new photo! </a> 
+			<% else %>
+				<h2> <%= @user_name %> doesn't have any pictures! </h2>
+			<% end %>
+		<% end %>
+	</div>
+<% end %>
+

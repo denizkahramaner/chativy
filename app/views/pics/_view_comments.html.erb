@@ -1,0 +1,24 @@
+<!-- The view_comments partial will display all the comments of a given photo -->
+
+<!-- Checks if there are comments under a picture! -->
+<% if photo.comments.length >0 %>
+<!-- Iterate through the comments for the picture, creates a table for comments -->
+	<table class="comments">
+    	<% photo.comments.each do |current_comment| %>
+    		<tr><td class="comment">
+    			<!-- Display the current comment's username, followed by the current comment text -->
+        		<% comment_user = current_comment.user %>
+        		<a href="/pics/user/<%= comment_user.id %>" class="content_link"> <%= comment_user.first_name + " " + comment_user.last_name  %> </a>
+        		<%= ": "+ current_comment.comment %> 
+                <% comment_date = current_comment.date_pacific %>
+        		<p class="date"> <%= comment_date  %> </p>
+        	</td></tr>
+    	<%end%>
+        <tr><td>
+            <a href="/pics/comment/<%= photo.id %>" class="content_link"> I want to add a comment! </a>
+        </td></tr>
+	</table>
+<% else %>
+	<p> No comments posted on this picture </p>
+    <a href="/pics/comment/<%= photo.id %>" class="content_link"> I want to add a comment! </a>
+<% end %>
