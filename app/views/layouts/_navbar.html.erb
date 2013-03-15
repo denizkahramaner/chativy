@@ -1,0 +1,49 @@
+	<!-- Navigation bar code BEGIN -->
+	<div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+	          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </a>
+	          <a class="brand" href="/information/index.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          <div class="nav-collapse">
+	            <ul class="nav pull-right">
+					<li><a href="/information/index">Home</a></li>
+					<li><a href="/information/about">About</a></li>
+					<li><a href="/information/pricing">Pricing</a></li>
+					<% if @logged_in_user %>
+						<% if session[:user] then %>
+							<li>
+								<a href="/pics/user/<%= session[:user] %>">
+								Photos
+								</a>
+							</li>
+						<%end %>
+						<% if session[:user] then %>
+							<li>
+								<a 
+							href="/pics/users">
+								Users
+								</a>
+							</li>
+						<%end %>
+						<li>
+							<a href="/user/logout"><%= @logged_in_user.first_name %>_TODO (dropdown)
+								</a>
+						</li>
+						<li>
+							<a href="/user/logout">Logout
+							</a>
+						</li>
+						
+					<% elsif %>
+						<li><a href="/user/login">Sign in</a></li>
+						
+					<% end %>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	    	</div>
+		</div>
+	</div>
