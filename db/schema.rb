@@ -20,8 +20,13 @@ ActiveRecord::Schema.define(:version => 20120525051016) do
     t.string   "comment"
   end
 
-# Could not dump table "photos" because of following StandardError
-#   Unknown type 'url' for column 'file_name'
+  create_table "photos", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "date_time"
+    t.string   "file_name"
+    t.string   "password_digest"
+    t.string   "salt"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
