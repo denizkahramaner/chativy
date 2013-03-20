@@ -30,7 +30,7 @@
 							</li>
 						<%end %>
 						<li>
-							<a href="/user/logout"><%= @logged_in_user.first_name %>_TODO (dropdown)
+							<a href="/user/logout"><%= session[:user_type] %>_TODO (dropdown)
 								</a>
 						</li>
 						<li>
