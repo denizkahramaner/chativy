@@ -10,7 +10,7 @@
         <p class="large pink add-space">CHATIVY</p>
       </div>
     </div>    
-    <div class="hero-unit fullframeWpadding">
+    <div class="hero-unit text-unit fullframeWpadding">
       <div class="container">
         <div class="row">
           <div class="span12">
@@ -27,7 +27,7 @@
         <p class="large pink add-space">CHATIVY</p>
       </div> -->
     </div> 
-    <div class="hero-unit fullframeWpadding">
+    <div class="hero-unit text-unit fullframeWpadding">
       <div class="container">
         <div class="row">
           <div class="span12">
@@ -35,7 +35,7 @@
             <h1>Sign up <strong class="pink">TODAY</strong></h1>
             <div class="center_button"> 
               <a href="/user/register">
-                <button type="submit" class="btn btn-primary btn-large">Sign up</button>
+                <button type="submit" class="btn btn-primary btn-large signup_button">Sign up</button>
               </a>
             </div>
           </div>
@@ -52,7 +52,7 @@
       </div> -->
     </div> 
 
-    <div class="hero-unit fullframeWpadding">
+    <div class="hero-unit text-unit fullframeWpadding">
       <div class="container">
         <div class="row">
           <div class="span12">
@@ -60,7 +60,7 @@
             <h1>APPLY TO BE A <strong class="pink">TUTOR</strong></h1>
             <div class="center_button"> 
               <a href="/user/register">
-                <button type="submit" class="btn btn-primary btn-large">Tutor Application</button>
+                <button type="submit" class="btn btn-primary btn-large signup_button">Tutor Application</button>
               </a>
             </div>
           </div>
@@ -71,25 +71,55 @@
 
 
     <script>
-      $(window).resize(function(){
-        var newwidth = $(window).width();
+
+  
+
+       // RESIZES ELEMENTS according to screen size (iphone compatibility)
+      function resizeElements()
+      {
+                var newwidth = $(window).width();
         var newheight = $(window).height();  
         // iphone size  
-        if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) || newwidth <= 480)
+        if ( /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) || newwidth <= 480)
         {
-          console.log("smallest");
           $("#caption_text").css('visibility', 'hidden');
+          $(".text-unit").css('padding-top', '0px');
+          $(".text-unit").css('padding-bottom', '10px');
           $("h1").css('font-size', '20px');
+          $(".signup_button").removeClass('btn-large');
+          $("button").width(200);
+          $("button").height(70);
         }
-        else if (newwidth < 800 )
+        else if (newwidth < 1000 )
         {
           $("#caption_text").css('visibility', 'hidden');
           $("h1").css('font-size', '35px');
+          $(".text-unit").css('padding', '60px');
+          $(".signup_button").addClass('btn-large');
+          $("button").width(300);
+          $("button").height(70);
         }  
         else
         {
           $("#caption_text").css('visibility', 'visible');
           $("h1").css('font-size', '58px');
+          $(".text-unit").css('padding', '60px');
+          $(".signup_button").addClass('btn-large');
+          $("button").width(300);
+          $("button").height(70);
+          
         }
+      }
+
+
+      $(document).ready(function() {
+        resizeElements();
+      });
+
+
+   
+      $(window).resize(function(){
+        resizeElements();
+
       });
     </script>
