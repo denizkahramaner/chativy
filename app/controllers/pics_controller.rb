@@ -22,7 +22,7 @@ class PicsController < ApplicationController
 		user_id = params[:id]
 		@user = User.find_by_id(user_id)
 		@own_page = false
-		if session[:user].id.to_i == user_id.to_i then
+		if session[:user].to_i == user_id.to_i then
 			@own_page = true
 		end
 
@@ -73,7 +73,7 @@ class PicsController < ApplicationController
 		@title = "Comment Form"
 		@photo = Photo.find(params[:id])
 		@comment = Comment.new(params[:comment])
-		@comment.user_id = session[:user].id
+		@comment.user_id = session[:user]
 		@comment.photo_id = params[:id]
 		@comment.date_time = DateTime.now()
 		user_of_photo = Photo.find_by_id(params[:id]).user_id
@@ -105,11 +105,11 @@ class PicsController < ApplicationController
 		photo_file = File.new(joined_directory,"wb")
 		photo_file.write(params[:pics][:image].read)
 		photo = Photo.new
-		photo.user_id = session[:user].id
+		photo.user_id = session[:user]
 		photo.date_time = DateTime.now()
 		photo.file_name = params[:pics][:image].original_filename
 		if photo.save() then
-			redirect_to :controller => "pics", :action => "user", :id => session[:user].id
+			redirect_to :controller => "pics", :action => "user", :id => session[:user]
 		elsif
 			render :controller => "pics", :action => "photo"
 		end	

@@ -4,7 +4,7 @@
       <img src="/images/Stanford_Panaroma_Small.jpg" style="width:100%;">
 
 
-      <div class="caption middle-left container">
+      <div id ="caption_text" class="caption middle-left container">
         <p class="large white text-dark">Improve Your College Application</p>
         <p class="medium white text-pink">with</p>
         <p class="large pink add-space">CHATIVY</p>
@@ -67,3 +67,21 @@
         </div>
       </div>
     </div>
+
+
+
+    <script>
+      $(window).resize(function(){
+        console.log("herp");
+      var newwidth = $(window).width();
+      var newheight = $(window).height();    
+      if (newwidth < 400 )
+      {
+        $("#caption_text").css('visibility', 'hidden');
+      }  
+      else
+      {
+        $("#caption_text").css('visibility', 'visible');
+      }
+      });
+    </script>

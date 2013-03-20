@@ -15,7 +15,7 @@ class UserController < ApplicationController
 		elsif Student.exists?(:login => loginString) then
 			student_user = Student.find_by_login(loginString)
 			if student_user.password_valid?(inputPassword)
-				session[:user_id] = @user.id
+				session[:user] = @user.id
 				session[:user_type] = "student"
 				redirect_to :controller => "pics", :action => "user", :id => student_user.id
 				return

@@ -322,7 +322,7 @@ footer a:hover {
 
 @font-face {
   font-family: 'college';
-  src:url('college.ttf');
+  src:url('college.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
