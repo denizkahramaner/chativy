@@ -12,11 +12,11 @@ class UserController < ApplicationController
 		end
 		if inputPassword.length == 0
 			flash[:notice] << "Password can't be blank"
-		elsif User.exists?(:login => loginString) then
-			user = User.find_by_login(loginString)
-			if user.password_valid?(inputPassword)
-				session[:user] = user.id
-				redirect_to :controller => "pics", :action => "user", :id => user.id
+		elsif Student.exists?(:login => loginString) then
+			student_user = Student.find_by_login(loginString)
+			if student_user.password_valid?(inputPassword)
+				session[:user] = student_user.id
+				redirect_to :controller => "pics", :action => "user", :id => student_user.id
 				return
 			end
 		end
@@ -32,14 +32,14 @@ class UserController < ApplicationController
 	def register
 		@title = "Registration Form"
 		if @user.nil?
-			@user = User.new
+			@user = Student.new
 		end
 	end
 
 	def post_register
 		@title = "Registration Form"
-		@user = User.new(params[:user])
-		@user.password = params[:user][:password]
+		@user = Student.new(params[:student])
+		@user.password = params[:student][:password]
 		if @user.save()
 			session[:user] = @user.id
 			redirect_to :controller => "pics", :action => "users"

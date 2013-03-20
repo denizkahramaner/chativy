@@ -1,5 +1,6 @@
 class Addlogin < ActiveRecord::Migration
     def up
+        #for users
         add_column :users, :login, :string
         User.reset_column_information
         all_users = User.find(:all)

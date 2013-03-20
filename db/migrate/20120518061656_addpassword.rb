@@ -11,6 +11,7 @@ class Addpassword < ActiveRecord::Migration
         	#current_user.update_attribute(:salt => salt)
         	current_user.save(:validate => false)
         end
+
     end
     
     def down
