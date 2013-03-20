@@ -15,7 +15,7 @@ class UserController < ApplicationController
 		elsif Student.exists?(:login => loginString) then
 			student_user = Student.find_by_login(loginString)
 			if student_user.password_valid?(inputPassword)
-				session[:user] = student_user.id
+				session[:user] = Struct.new(:id=>student_user.id, :type=>"student")
 				redirect_to :controller => "pics", :action => "user", :id => student_user.id
 				return
 			end
@@ -41,7 +41,7 @@ class UserController < ApplicationController
 		@user = Student.new(params[:student])
 		@user.password = params[:student][:password]
 		if @user.save()
-			session[:user] = @user.id
+			session[:user] = Struct.new(@user.id, :type=>"student")
 			redirect_to :controller => "pics", :action => "users"
 		elsif
 			render :controller => "user", :action => "register"
