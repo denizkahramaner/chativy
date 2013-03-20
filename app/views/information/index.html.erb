@@ -72,16 +72,23 @@
 
     <script>
       $(window).resize(function(){
-        console.log("herp");
-      var newwidth = $(window).width();
-      var newheight = $(window).height();    
-      if (newwidth < 400 )
-      {
-        $("#caption_text").css('visibility', 'hidden');
-      }  
-      else
-      {
-        $("#caption_text").css('visibility', 'visible');
-      }
+        var newwidth = $(window).width();
+        var newheight = $(window).height();    
+        if (newwidth < 400)
+        {
+          console.log("smallest");
+          $("#caption_text").css('visibility', 'hidden');
+          $("h1").css('font-size', '20px');
+        }
+        else if (newwidth < 800 )
+        {
+          $("#caption_text").css('visibility', 'hidden');
+          $("h1").css('font-size', '40px');
+        }  
+        else
+        {
+          $("#caption_text").css('visibility', 'visible');
+          $("h1").css('font-size', '58px');
+        }
       });
     </script>
