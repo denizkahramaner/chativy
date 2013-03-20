@@ -1,0 +1,36 @@
+/* navigation */
+.navbar {
+  font-family: 'college', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.caption p
+{
+	opacity:1;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.caption.middle-left
+{
+	top:30%;
+}
+
+.center_button
+{
+	text-align:center;
+}
+
+
+.center_button button
+{
+	width:300px;
+	height:70px;
+}
+
+.header
+{
+	font-family: 'college', sans-serif;
+}
