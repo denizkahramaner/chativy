@@ -10,6 +10,7 @@ class CreateTutors < ActiveRecord::Migration
 	 	t.timestamps
 	 	t.column :password_digest, :string
 	    t.column :salt, :string
+	    t.column :login, :string
     end
   end
 end

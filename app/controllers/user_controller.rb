@@ -37,6 +37,13 @@ class UserController < ApplicationController
 		end
 	end
 
+	def register_tutor
+		@title = "Tutor Application Form"
+		if @user.nil?
+			@user = Tutor.new
+		end
+	end
+
 	def post_register
 		@title = "Registration Form"
 		@user = Student.new(params[:student])
@@ -44,7 +51,20 @@ class UserController < ApplicationController
 		if @user.save()
 			session[:user] = @user.id
 			session[:user_type] = "student"
-			redirect_to :controller => "pics", :action => "users"
+			redirect_to :controller => "user", :action => "dashboard"
+		elsif
+			render :controller => "user", :action => "register"
+		end
+	end
+
+	def post_register_tutor
+		@title = "Registration Form"
+		@user = Tutor.new(params[:tutor])
+		@user.password = params[:tutor][:password]
+		if @user.save()
+			session[:user] = @user.id
+			session[:user_type] = "tutor"
+			redirect_to :controller => "user", :action => "dashboard"
 		elsif
 			render :controller => "user", :action => "register"
 		end
