@@ -4,7 +4,7 @@ class PicsController < ApplicationController
 	respond_to :html, :js
 
 	def users
-		@users = User.find(:all)
+		@tutors = Tutor.find(:all)
 	end
 
 	def search
