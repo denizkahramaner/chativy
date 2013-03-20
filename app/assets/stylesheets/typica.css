@@ -319,6 +319,21 @@ footer a:hover {
 /* $FONTS */
 /* ###### */
 /* global */
+
+@font-face {
+  font-family: 'college';
+  src:url('college.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Baskerville';
+  src:url('baskvl.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 h1, h2, h3, h4, h5 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
@@ -369,7 +384,7 @@ blockquote p {
 /* navigation */
 .navbar {
   font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
