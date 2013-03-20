@@ -7,40 +7,24 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </a>
-	          <a class="brand" href="/information/index.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          <% if @logged_in_user %>
+	          	<a class="brand" href="/user/dashboard.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          <% else %>
+	          	<a class="brand" href="/information/index.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          <% end %>
 	          <div class="nav-collapse">
 	            <ul class="nav pull-right">
-					<li><a href="/information/index">Home</a></li>
-					<li><a href="/information/about">About</a></li>
-					<li><a href="/information/pricing">Pricing</a></li>
 					<% if @logged_in_user %>
-						<% if session[:user] then %>
-							<li>
-								<a href="/pics/user/<%= session[:user] %>">
-								Photos
-								</a>
-							</li>
-						<%end %>
-						<% if session[:user] then %>
-							<li>
-								<a 
-							href="/pics/users">
-								Users
-								</a>
-							</li>
-						<%end %>
-						<li>
-							<a href="/user/logout"><%= session[:user_type] %>_TODO (dropdown)
-								</a>
-						</li>
-						<li>
-							<a href="/user/logout">Logout
-							</a>
-						</li>
-						
-					<% elsif %>
+						<li><a href="/user/dashboard">Home</a></li>
+						<li><a href="/information/pricing">Pricing</a></li>
+						<li><a href="/pics/users">Users</a></li>
+						<li><a href="/user/logout"><%= session[:user_type] %>_TODO (dropdown)</a></li>
+						<li><a href="/user/logout">Logout</a></li>
+					<% else %>
+						<li><a href="/information/index">Home</a></li>
+						<li><a href="/information/pricing">Pricing</a></li>
+						<li><a href="/information/about">About</a></li>
 						<li><a href="/user/login">Sign in</a></li>
-						
 					<% end %>
 	            </ul>
 	          </div><!--/.nav-collapse -->
