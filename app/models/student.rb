@@ -2,6 +2,7 @@ class Student < ActiveRecord::Base
     has_many :photos
   	has_many :comments
     has_many :tags
+    has_many :video_chats
 
   	validates :first_name, :presence => true
   	validates :last_name, :presence => true
@@ -10,7 +11,6 @@ class Student < ActiveRecord::Base
   	validates :login, :uniqueness => true
   	validates :password_confirmation, :presence => true
   	validates_confirmation_of :password, :message => "should match confirmation"
-
 
   	def password_valid? (input_password)
   		input_password_digest = Digest::SHA1.hexdigest (input_password + self.salt.to_s)

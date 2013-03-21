@@ -5,8 +5,7 @@
 	<ul>
 		<% @tutors.each do |current_tutor| %>
 	        <li> 
-				<a class= "content_link" href="http://localhost:3000/pics/user/<%= current_tutor.id  %>">
-				<%= current_tutor.first_name + " "+ current_tutor.last_name+ " " %></a>
+				<%= current_tutor.first_name + " "+ current_tutor.last_name+ ": " + current_tutor.description%>
 	        </li>
 	    <% end %>
 	</ul>
