@@ -1,8 +1,8 @@
-<%= stylesheet_link_tag    "student" %>
+<%= stylesheet_link_tag    "student", "user" %>
 
-<h1 style="padding-left:20px;"> Every Conference Call </h1>
+<h1 style="padding-left:20px;"> Conference Calls of Every User </h1>
 
-
+<% if @videochats.length > 0 %>
 <div class="content-backdrop">
 	<div class="content">
 		<div class="content-inner">
@@ -13,7 +13,7 @@
 							<div class="pool-con larger-button">
 								<a href="/student/conference?sessionID=<%=current_chat.session_id%>&token=<%=current_chat.session_token%>" class="btn btn-large btn-success"><%= Student.find_by_id(current_chat.student_id).full_name %> on 
 								<small>
-								<%=current_chat.date.to_datetime.strftime("%A, %B %e AT %l %p")%>
+								<%=current_chat.date.to_datetime.strftime("%A, %B %e AT %l:%M %p")%>
 								</small>
 								</a>
 							</div>
@@ -28,6 +28,10 @@
 		</div>
 	</div>
 </div>
+<% else %>
+	<br/>
+	<p> None of the users have scheduled conference calls. </p>
+<% end %>
 
 
 

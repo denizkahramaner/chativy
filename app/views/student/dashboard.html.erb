@@ -1,8 +1,8 @@
-<%= stylesheet_link_tag    "student" %>
+<%= stylesheet_link_tag    "student", "user" %>
 
 <h1 style="padding-left:20px;"> Your Future Video Chats </h1> 
 
-
+<% if @videochats.length > 0 %>
 <div class="content-backdrop">
 	<div class="content">
 		<div class="content-inner">
@@ -11,9 +11,9 @@
 					<div class="week span6">
 						<% @videochats.each do |current_chat| %>
 							<div class="pool-con larger-button">
-								<a href="/student/conference?sessionID=<%=current_chat.session_id%>&token=<%=current_chat.session_token%>" class="btn btn-large btn-success">Your conference call at
+								<a href="/student/conference?sessionID=<%=current_chat.session_id%>&token=<%=current_chat.session_token%>" class="btn btn-large btn-success">Your conference call on
 								<small>
-								<%=current_chat.date.to_datetime.strftime("%A, %B %e AT %l %p")%>
+								<%=current_chat.date.to_datetime.strftime("%A, %B %e AT %l:%M %p")%>
 								</small>
 								</a>
 							</div>
@@ -27,4 +27,8 @@
 		</div>
 	</div>
 </div>
+<% else %>
+	<br/>
+	<p style="padding-left:20px;">  You don't have any upcoming conference calls. <a href="/student/reserve">Reserve one now. </a></p>
+<% end %>
 

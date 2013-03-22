@@ -22,10 +22,8 @@
 						<% if @user_is_student %>
 							<li><a href="/student/dashboard">Home</a></li>
 							<li><a href="/student/reserve">Reserve</a></li>
-							<li><a href="/student/dashboard"><%= session[:user_type] %></a></li>
 						<% elsif @user_is_tutor %>
 							<li><a href="/tutor/dashboard">Home</a></li>
-							<li><a href="/tutor/dashboard"><%= session[:user_type] %></a></li>
 						<% end %>
 						<li><a href="/user/logout">Logout</a></li>
 					<% else %>
