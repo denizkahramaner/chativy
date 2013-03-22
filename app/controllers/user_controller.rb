@@ -69,4 +69,9 @@ class UserController < ApplicationController
 			render :controller => "user", :action => "register"
 		end
 	end
+	def dashboard
+		if session[:user] then
+			@user = User.find(session[:user])
+		end
+	end
 end
