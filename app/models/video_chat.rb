@@ -1,4 +1,4 @@
 class VideoChat < ActiveRecord::Base
     has_one :student
-  	has_one :tutor
+  	has_many :tutors
 end

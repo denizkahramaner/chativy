@@ -17,7 +17,7 @@ class UserController < ApplicationController
 			if student_user.password_valid?(inputPassword)
 				session[:user] = student_user.id
 				session[:user_type] = "student"
-				redirect_to :controller => "pics", :action => "user", :id => student_user.id
+				redirect_to :controller => "user", :action => "dashboard", :id => student_user.id
 				return
 			end
 		end
@@ -70,6 +70,7 @@ class UserController < ApplicationController
 		end
 	end
 	def dashboard
+		@videochats = VideoChat.find_all_by_student_id(session[:user])
 		if session[:user] then
 			@user = User.find(session[:user])
 		end

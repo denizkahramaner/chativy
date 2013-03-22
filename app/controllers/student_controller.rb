@@ -7,7 +7,7 @@ class StudentController < ApplicationController
 	def conference
 		# Creating Session object with p2p enabled
 		sessionProperties = {OpenTok::SessionPropertyConstants::P2P_PREFERENCE => "enabled"}    # or disabled
-		@sessionId = OTSDK.createSession( request.ip, sessionProperties )
+		@sessionID = OTSDK.createSession( request.ip, sessionProperties )
 		expire_time = Time.now.to_i + THIRTY_DAYS
 		@token = OTSDK.generateToken :session_id => @sessionID, :role => OpenTok::RoleConstants::PUBLISHER, :expire_time => expire_time
 		@apiKey = API_KEY
@@ -15,10 +15,30 @@ class StudentController < ApplicationController
 
 	def generateSession
 		sessionProperties = {OpenTok::SessionPropertyConstants::P2P_PREFERENCE => "enabled"}    # or disabled
-		sessionId = OTSDK.createSession( request.ip, sessionProperties )
+		sessionID = OTSDK.createSession( request.ip, sessionProperties )
 		expire_time = Time.now.to_i + THIRTY_DAYS
 		token = OTSDK.generateToken :session_id => sessionID, :role => OpenTok::RoleConstants::PUBLISHER, :expire_time => expire_time
 		return sessionID, token
+	end
+
+	def reserve
+		@title = "Reservation form"
+	end
+
+	def post_reserve
+		reservationTime = params[:reservationTime]
+		#parse reservation time
+		
+		sessionID,token = generateSession()
+		#save to database
+		@conference_session = VideoChat.new(:date => DateTime.now(), :session_id => sessionID, :session_token => token )
+		@conference_session.student_id = session[:user]
+
+		if @conference_session.save()
+			redirect_to :controller => "user", :action => "dashboard"
+		elsif
+			render :controller => "user", :action => "reserve"
+		end
 	end
 
 end
