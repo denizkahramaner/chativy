@@ -1,0 +1,9 @@
+All video conferences
+
+
+<% @videochats.each do |current_chat| %>
+
+	<h1> Your video chat on <%= current_chat.date %> </h1>
+	<%= current_chat.session_id %>
+	<%= current_chat.session_token %>
+<% end %>

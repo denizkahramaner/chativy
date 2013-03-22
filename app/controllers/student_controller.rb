@@ -35,9 +35,17 @@ class StudentController < ApplicationController
 		@conference_session.student_id = session[:user]
 
 		if @conference_session.save()
-			redirect_to :controller => "user", :action => "dashboard"
+			redirect_to :controller => "student", :action => "dashboard"
 		elsif
-			render :controller => "user", :action => "reserve"
+			render :controller => "student", :action => "reserve"
+		end
+	end
+
+
+	def dashboard
+		@videochats = VideoChat.find_all_by_student_id(session[:user], :order => "date")
+		if session[:user] then
+			@student = Student.find(session[:user])
 		end
 	end
 

@@ -69,10 +69,5 @@ class UserController < ApplicationController
 			render :controller => "user", :action => "register"
 		end
 	end
-	def dashboard
-		@videochats = VideoChat.find_all_by_student_id(session[:user])
-		if session[:user] then
-			@user = User.find(session[:user])
-		end
-	end
+	
 end
