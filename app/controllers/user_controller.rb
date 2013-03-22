@@ -59,9 +59,9 @@ class UserController < ApplicationController
 		if @user.save()
 			session[:user] = @user.id
 			session[:user_type] = "student"
-			redirect_to :controller => "user", :action => "dashboard"
+			redirect_to :controller => "student", :action => "dashboard"
 		elsif
-			render :controller => "user", :action => "register"
+			render :controller => "student", :action => "register"
 		end
 	end
 

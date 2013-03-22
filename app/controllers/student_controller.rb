@@ -28,7 +28,7 @@ class StudentController < ApplicationController
 		
 		newSession = generateSession()
 		sessionID = newSession[:sessionID]
-		sessionID = sessionID.split("---%20!ruby/object:OpenTok::Sessionsession_id:%20")
+		sessionID = sessionID.session_id
 		token = newSession[:token];
 		#save to database
 		@conference_session = VideoChat.new(:date => DateTime.now(), :session_id => sessionID, :session_token => token )
