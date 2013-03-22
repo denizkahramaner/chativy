@@ -61,7 +61,7 @@ class UserController < ApplicationController
 			session[:user_type] = "student"
 			redirect_to :controller => "student", :action => "dashboard"
 		elsif
-			render :controller => "student", :action => "register"
+			render :controller => "user", :action => "register"
 		end
 	end
 
@@ -74,7 +74,7 @@ class UserController < ApplicationController
 			session[:user_type] = "tutor"
 			redirect_to :controller => "tutor", :action => "dashboard"
 		elsif
-			render :controller => "tutor", :action => "register"
+			render :controller => "user", :action => "register_tutor"
 		end
 	end
 	
