@@ -117,9 +117,9 @@
 
 <script>
 	API_KEY = '23280692';
-  <%if @sessionID%>
-    localStorage.sessionID = <%=@sessionID%>
-    localStorage.token = <%=@token%>
+  <% if @sessionID != nil %>
+    localStorage.sessionID = "<%=@sessionID%>";
+    localStorage.token = "<%=@token%>";
   <%end%>
 	TB.addEventListener("exception", exceptionHandler);
 	var session = TB.initSession(localStorage.sessionID); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
