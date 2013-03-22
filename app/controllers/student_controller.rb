@@ -18,7 +18,7 @@ class StudentController < ApplicationController
 		sessionID = OTSDK.createSession( request.ip, sessionProperties )
 		expire_time = Time.now.to_i + THIRTY_DAYS
 		token = OTSDK.generateToken :session_id => sessionID, :role => OpenTok::RoleConstants::PUBLISHER, :expire_time => expire_time
-		return sessionID, token
+		return {:sessionID => sessionID, :token => token}
 	end
 
 	def reserve
@@ -29,7 +29,9 @@ class StudentController < ApplicationController
 		reservationTime = params[:reservationTime]
 		#parse reservation time
 		
-		sessionID,token = generateSession()
+		newSession = generateSession()
+		sessionID = newSession[:sessionID];
+		token = newSession[:token];
 		#save to database
 		@conference_session = VideoChat.new(:date => DateTime.now(), :session_id => sessionID, :session_token => token )
 		@conference_session.student_id = session[:user]
