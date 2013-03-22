@@ -12,7 +12,7 @@
 
   <h1>Drive Realtime API :: quickstart</h1>
 
-  <button id="authorizeButton" disabled>You must authorize</button>
+  <button id="authorizeButton" disabled>Open chat session with Google Drive</button>
 
   <p>These text areas are on the same page. You can also <a target="_blank" href="#">open them on separate users'
   browsers</a> and they will remain synchronized.</p>
@@ -115,23 +115,17 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <script>
 	API_KEY = '23280692';
+  <%if @sessionID%>
+    localStorage.sessionID = <%=@sessionID%>
+    localStorage.token = <%=@token%>
+  <%end%>
 	TB.addEventListener("exception", exceptionHandler);
-	var session = TB.initSession("<%=@sessionID%>"); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
+	var session = TB.initSession(localStorage.sessionID); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
 	session.addEventListener("sessionConnected", sessionConnectedHandler);
 	session.addEventListener("streamCreated", streamCreatedHandler);
-	session.connect(API_KEY, "<%=@token%>"); // Replace with your API key and token. See https://dashboard.tokbox.com/projects
+	session.connect(API_KEY, localStorage.token); // Replace with your API key and token. See https://dashboard.tokbox.com/projects
 	                                         // 	 and https://dascts
 
 	function sessionConnectedHandler(event) {
