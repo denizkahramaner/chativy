@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag    "student", "user" %>
 
-<h1 style="padding-left:20px;"> Conference Calls of Every User </h1>
+<h1 style="padding-left:20px;"> All Conference Calls </h1>
 
 <% if @videochats.length > 0 %>
 <div class="content-backdrop">
@@ -30,7 +30,7 @@
 </div>
 <% else %>
 	<br/>
-	<p> None of the users have scheduled conference calls. </p>
+	<p style="padding-left:30px"> None of the users have scheduled conference calls. </p>
 <% end %>
 
 
