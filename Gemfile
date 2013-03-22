@@ -35,5 +35,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+# Opentok Videochat API
+gem 'opentok'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
