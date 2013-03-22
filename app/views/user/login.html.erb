@@ -1,3 +1,5 @@
+ <%= stylesheet_link_tag    "user" %>
+
 <div class="container">
 <div class = "form">
 	<h2> Login to your account </h2>
@@ -11,14 +13,30 @@
 	<%end %>
 	<!-- Display form for login -->
 	<%= form_for(:user, :url => {:action => :post_login}) do |form| %>
-		<p>
-			<label> Email </label>
-			<%= form.text_field(:login) %>
-			
-			<%= form.label :password %>
-			<%= form.password_field :password %>
-			<%= submit_tag "Submit" %>
-		</p>
+		<table>
+			<tr>
+				<td class="form_label">
+					<label> Email </label>
+				</td>
+				<td>
+					<%= form.text_field(:login) %>
+				</td>
+			</tr>
+			<tr>
+				<td class="form_label">
+					<%= form.label :password %>
+				</td>
+				<td>
+					<%= form.password_field :password %>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+				<%= submit_tag "Submit" %>
+			</td>
+			</tr>
+		</table>
 	<% end %>
 	<p> If you don't have an account, <a class="content_link" href="/user/register/"> Register </a> </p>
 </div>

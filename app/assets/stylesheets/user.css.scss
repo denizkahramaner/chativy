@@ -2,3 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.form h1, h2, h3, h4
+{
+	font-family: 'college', sans-serif;
+}
+
+.container
+{
+	margin-left:50px;
+}
+
+.submit
+{
+	margin-top:20px;
+}
+
+label, input
+{
+	font-family: 'Open Sans', sans-serif;
+}
+
+input,textarea
+{	
+	width:300px;
+}
+
+
+.form_label
+{
+	padding-right:20px;
+}

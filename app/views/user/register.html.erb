@@ -1,6 +1,8 @@
+ <%= stylesheet_link_tag    "user" %>
 
 <div class="container">
 	<div class = "form">
+		<div class="row">
 		<h2> Student Registration </h2>
 		<%= form_for(@user, :url => {:action => :post_register}) do |form| %>
 			<!-- Display validation problems -->
@@ -65,7 +67,7 @@
 				<tr>
 					<td>
 					</td>
-					<td>		
+					<td class="submit">	
 						<%= submit_tag "Register" %>
 					</td>
 				</tr>

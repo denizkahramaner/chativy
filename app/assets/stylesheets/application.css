@@ -7,6 +7,13 @@
   text-transform: uppercase;
 }
 
+.page-header h1, h2, h3, h4
+{
+	opacity:1;
+	font-family: 'college', sans-serif;
+
+}
+
 .caption p
 {
 	opacity:1;
@@ -22,8 +29,6 @@
 {
 	text-align:center;
 }
-
-
 
 .header
 {
