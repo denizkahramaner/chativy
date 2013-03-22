@@ -123,7 +123,6 @@
 	session.addEventListener("streamCreated", streamCreatedHandler);
 	session.connect(API_KEY, localStorage.token); // Replace with your API key and token. See https://dashboard.tokbox.com/projects
 	                                         // 	 and https://dascts
-
 	function sessionConnectedHandler(event) {
 		 subscribeToStreams(event.streams);
 		 session.publish();
