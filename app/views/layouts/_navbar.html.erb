@@ -8,16 +8,25 @@
 	            <span class="icon-bar"></span>
 	          </a>
 	          <% if @logged_in_user %>
-	          	<a class="brand" href="/user/dashboard.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          	<% if @user_is_student %>
+	          		<a class="brand" href="/student/dashboard.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          	<% elsif @user_is_tutor %>
+	          		<a class="brand" href="/tutor/dashboard.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
+	          	<% end %>
 	          <% else %>
 	          	<a class="brand" href="/information/index.html"><img src="/images/Logo_Small.png" alt="Chativy Home Page"></a>
 	          <% end %>
 	          <div class="nav-collapse">
 	            <ul class="nav pull-right">
 					<% if @logged_in_user %>
-						<li><a href="/user/dashboard">Home</a></li>
-						<li><a href="/student/reserve">Reserve</a></li>
-						<li><a href="/user/dashboard"><%= session[:user_type] %></a></li>
+						<% if @user_is_student %>
+							<li><a href="/student/dashboard">Home</a></li>
+							<li><a href="/student/reserve">Reserve</a></li>
+							<li><a href="/student/dashboard"><%= session[:user_type] %></a></li>
+						<% elsif @user_is_tutor %>
+							<li><a href="/tutor/dashboard">Home</a></li>
+							<li><a href="/tutor/dashboard"><%= session[:user_type] %></a></li>
+						<% end %>
 						<li><a href="/user/logout">Logout</a></li>
 					<% else %>
 						<li><a href="/information/index">Home</a></li>
