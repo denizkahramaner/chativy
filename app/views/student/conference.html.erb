@@ -3,7 +3,7 @@
 <script>
 	API_KEY = '23280692';
 	TB.addEventListener("exception", exceptionHandler);
-	var session = TB.initSession("<%=@sessionId%>"); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
+	var session = TB.initSession("<%=@sessionID%>"); // Replace with your own session ID. See https://dashboard.tokbox.com/projects
 	session.addEventListener("sessionConnected", sessionConnectedHandler);
 	session.addEventListener("streamCreated", streamCreatedHandler);
 	session.connect(API_KEY, "<%=@token%>"); // Replace with your API key and token. See https://dashboard.tokbox.com/projects

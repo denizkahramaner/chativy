@@ -12,6 +12,7 @@ class StudentController < ApplicationController
 	def generateSession
 		sessionProperties = {OpenTok::SessionPropertyConstants::P2P_PREFERENCE => "enabled"}    # or disabled
 		sessionID = OTSDK.createSession( request.ip, sessionProperties )
+		puts sessionID
 		expire_time = Time.now.to_i + THIRTY_DAYS
 		token = OTSDK.generateToken :session_id => sessionID, :role => OpenTok::RoleConstants::PUBLISHER, :expire_time => expire_time
 		return {:sessionID => sessionID, :token => token}
