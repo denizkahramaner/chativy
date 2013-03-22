@@ -13,7 +13,7 @@
 							<div class="pool-con larger-button">
 								<a href="/student/conference?sessionID=<%=current_chat.session_id%>&token=<%=current_chat.session_token%>" class="btn btn-large btn-success">Your conference call at
 								<small>
-								<%=current_chat.date%>
+								<%=current_chat.date.to_datetime.strftime("%A, %B %e AT %l %p")%>
 								</small>
 								</a>
 							</div>
