@@ -14,13 +14,13 @@
     // iphone size
     if(/(iPhone|iPod|iPad).*AppleWebKit/i.test(navigator.userAgent) || newwidth<400)
     {
-      $(".btn-large").css('width', '240px');
-      $(".larger-button").css('width', '240px');
+      $(".btn-large").css('width', '200px');
+      $(".larger-button").css('width', '200px');
     }
     else if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent))
     {
-      $(".btn-large").css('width', '240px');
-      $(".larger-button").css('width', '240px');
+      $(".btn-large").css('width', '200px');
+      $(".larger-button").css('width', '200px');
     }  
     else
     {
