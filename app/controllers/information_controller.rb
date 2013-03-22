@@ -1,6 +1,7 @@
 class InformationController < ApplicationController
 	def index
-		@logged_in_user = User.find(session[:user])
+
+		@logged_in_user = session[:user] && User.find(session[:user])
 		@user_is_tutor = session[:user_type] == "tutor"
 		@user_is_student = session[:user_type] == "student"
 
