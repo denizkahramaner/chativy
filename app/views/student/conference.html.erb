@@ -5,9 +5,7 @@
       src="https://apis.google.com/js/api.js"></script>
   <!-- Load the utility library. -->
  <%= javascript_include_tag "realtime-client-utils"%>
- <script>
- 	window.onLoad='startRealtime()'
- </script>
+
 
 
 <!-- Start Realtime when the body has loaded. -->
@@ -110,6 +108,7 @@
       var realtimeLoader = new rtclient.RealtimeLoader(realtimeOptions);
       realtimeLoader.start();
     }
+ 	window.onLoad=startRealtime();
 
   </script>
 
