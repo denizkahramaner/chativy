@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
 			redirect_to :controller => "user", :action => "login"
 		end
 	end
+
+	def user_is_tutor
+		if session[:user_type] == "tutor"
+		end
+	end
 end

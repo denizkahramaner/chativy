@@ -12,7 +12,7 @@
 					<div class="week span8">
 						<% @videochats.each do |current_chat| %>
 						<div class="pool-con">
-							<a href="/user/conference?sessionID=<%= current_chat.session_id%>&token=<%= current_chat.session_token%>"> Your Conference At 
+							<a href="/student/conference?sessionID=<%= current_chat.session_id%>&token=<%= current_chat.session_token%>"> Your Conference At 
 							<small>
 							<%=current_chat.date%>
 							</small>
