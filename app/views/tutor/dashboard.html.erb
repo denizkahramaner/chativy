@@ -1,0 +1,35 @@
+<%= stylesheet_link_tag    "student" %>
+
+<h1 style="padding-left:20px;"> Every Conference Call </h1>
+
+
+<div class="content-backdrop">
+	<div class="content">
+		<div class="content-inner">
+			<div id="invites-availability">
+				<div class="row">
+					<div class="week span6">
+						<% @videochats.each do |current_chat| %>
+							<div class="pool-con larger-button">
+								<a href="/student/conference?sessionID=<%=current_chat.session_id%>&token=<%=current_chat.session_token%>" class="btn btn-large btn-success"><%= Student.find_by_id(current_chat.student_id).full_name %>'s conference
+								<small>
+								<%=current_chat.date%>
+								</small>
+								</a>
+							</div>
+						<% end %>
+
+
+					</div>
+					<div class="week-end">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+

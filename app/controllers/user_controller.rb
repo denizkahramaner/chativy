@@ -17,7 +17,15 @@ class UserController < ApplicationController
 			if student_user.password_valid?(inputPassword)
 				session[:user] = student_user.id
 				session[:user_type] = "student"
-				redirect_to :controller => "user", :action => "dashboard", :id => student_user.id
+				redirect_to :controller => "student", :action => "dashboard", :id => student_user.id
+				return
+			end
+		elsif Tutor.exists?(:login => loginString) then
+			tutor = Tutor.find_by_login(loginString)
+			if tutor.password_valid?(inputPassword)
+				session[:user] = tutor.id
+				session[:user_type] = "tutor"
+				redirect_to :controller => "tutor", :action => "dashboard", :id => student_user.id
 				return
 			end
 		end
@@ -64,9 +72,9 @@ class UserController < ApplicationController
 		if @user.save()
 			session[:user] = @user.id
 			session[:user_type] = "tutor"
-			redirect_to :controller => "user", :action => "dashboard"
+			redirect_to :controller => "tutor", :action => "dashboard"
 		elsif
-			render :controller => "user", :action => "register"
+			render :controller => "tutor", :action => "register"
 		end
 	end
 	
