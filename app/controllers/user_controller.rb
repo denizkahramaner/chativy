@@ -17,7 +17,7 @@ class UserController < ApplicationController
 			if student_user.password_valid?(inputPassword)
 				session[:user] = student_user.id
 				session[:user_type] = "student"
-				redirect_to :controller => "student", :action => "dashboard", :id => student_user.id
+				redirect_to :controller => "student", :action => "dashboard"
 				return
 			end
 		elsif Tutor.exists?(:login => loginString) then
@@ -25,7 +25,7 @@ class UserController < ApplicationController
 			if tutor.password_valid?(inputPassword)
 				session[:user] = tutor.id
 				session[:user_type] = "tutor"
-				redirect_to :controller => "tutor", :action => "dashboard", :id => student_user.id
+				redirect_to :controller => "tutor", :action => "dashboard"
 				return
 			end
 		end
